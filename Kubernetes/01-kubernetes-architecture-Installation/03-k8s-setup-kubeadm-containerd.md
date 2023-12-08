@@ -99,6 +99,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ## On control nodes (k8s master node):
 - We are bootstrapping control plane node.
 - "--pod-network-cidr" was changes here on local setup. Since my VMs are using same series network.
+- --apiserver-advertise-address=192.168.1.90  (is our control node ip)
 - So instead of applying the calico YAML files, first download them and update the CIDR of pod to be used cidr which ever "For example: 10.244.0.0/16 private class".
 ```
 #kubeadm init --apiserver-advertise-address=192.168.1.90 --cri-socket=/run/containerd/containerd.sock --pod-network-cidr=10.244.0.0/16
